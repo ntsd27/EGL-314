@@ -30,5 +30,3 @@ addr = "/print"
 msg = "HELLO"
 
 send_message(PI_A_ADDR, PORT, addr, msg)
-
-reti()

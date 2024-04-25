@@ -1,29 +1,42 @@
 import tkinter as tk
+import pythonosc
+import osc_client
 
-# Volume levels (initially 50)
-person1_volume = 50
-person2_volume = 50
-master_volume = 50
+def ql1():
+    receive_ip = "192.168.01.128"
+    receive_port = 49280
+    addr = "/print"
+    message = "HELLOOOOOOOOOOOO" 
 
-def volume_change(person, change):
-  global person1_volume, person2_volume, master_volume
+    send_message(receive_ip,receive_port,addr,message)
+	
+	
+def send_message(receiver_ip, receiver_port, address, message):
+	try:
+		# Create an OSC client to send messages
+		client = udp_client.SimpleUDPClient(receiver_ip, receiver_port)
+
+		# Send an OSC message to the receiver
+		client.send_message(address, message)
+
+		print("Message sent successfully.")
+	except:
+		print("Message not sent")
+
+def volume_change():
   if person == "person1":
-    person1_volume = min(max(person1_volume + change, 0), 100)  # Clamp between 0 and 100
+    command = 'set MIXER:Current/InCh/Fader/Level 0 0 1000'
+
   elif person == "person2":
-    person2_volume = min(max(person2_volume + change, 0), 100)
-  elif person == "master":
-    master_volume = min(max(master_volume + change, 0), 100)
-    # Update person volumes proportionally
-    volume_diff = person1_volume - person2_volume
-    person1_volume = master_volume + volume_diff / 2
-    person2_volume = master_volume - volume_diff / 2
-  print(f"Person 1: {person1_volume}, Person 2: {person2_volume}, Master: {master_volume}")  # Update display (optional)
+    command = 'set MIXER:Current/InCh/Fader/Level 1 0 1000'
+
+  elif person == "person3":
+    command = 'set MIXER:Current/InCh/Fader/Level 2 0 1000'
 
 def reset_volumes():
-  global person1_volume, person2_volume, master_volume
-  person1_volume = 50
-  person2_volume = 50
-  master_volume = 50
+  command = 'set MIXER:Current/InCh/Fader/Level 0 0 500'
+  command = 'set MIXER:Current/InCh/Fader/Level 1 0 500'
+  command = 'set MIXER:Current/InCh/Fader/Level 2 0 500'
 
 main = tk.Tk()
 main.title("Volume Control")  # Set window title
@@ -34,10 +47,9 @@ pady = 5
 
 # Person 1 Volume Buttons
 person1_label = tk.Label(main, text="Person 1 Volume")
-person1_label.grid(row=1, column=1, padx=padx, pady=pady)
-person1_up_button = tk.Button(main, text="Up", command=lambda: volume_change("person1", 5))
+person1_label.grid(row=1, column=1, padx=padx, pady=pady))
 person1_up_button.grid(row=2, column=1, padx=padx)
-person1_down_button = tk.Button(main, text="Down", command=lambda: volume_change("person1", -5))
+person1_down_button = tk.Button(main, text="Down", command=l: )
 person1_down_button.grid(row=4, column=1, padx=padx)
 
 # Person 2 Volume Buttons
