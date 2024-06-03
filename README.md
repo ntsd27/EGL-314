@@ -1,10 +1,14 @@
 #
  
-#
+## Table of Contents
+ -[Overview](##Overview)
+
+ -[Station Game](#StationGame)
 
 
 ## Overview
 > Project S.O.N.I.C (Sensory Observation Ninja Immersive Challenge) is an experiential/exploratory initiative designed to blend the ancient "ninja training techniques" with modern technology. Students will design a range of interactive stations that simulate ninja training scenarios which are designed to test and enhance particpants listening abilities, reaction time and memory, The stations includes: 
+
 1. Stealth Walking 
 2. The Blindfold Challenge
 3. Art of Hearing
@@ -24,4 +28,15 @@
 > Key Features include:
 * Rich, Multi-layered environments created by L-ISA 
 
+
+
+
+
+
+
+
+## Contributors
+> <a href="https://github.com/KarmaLuvsU"><img src="https://avatars.githubusercontent.com/u/167286591?v=4" title="Victor Nguyen" width="50" height="50"></a>
+<a href="https://github.com/Jerolaw"><img src="https://avatars.githubusercontent.com/u/132433711?v=4" title="Jerome" width="50" height="50"></a>
+<a href="https://github.com/THINESH2024"><img src="https://avatars.githubusercontent.com/u/171120826?v=4" title="Thinesh" width="50" height="50"></a>
 
