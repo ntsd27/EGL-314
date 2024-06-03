@@ -1,9 +1,32 @@
 #
- 
-## Table of Contents
- -[Overview](##Overview)
+<h1 align="center">
+  <img src="./Media Assests/NanyangPolyLogo.png" width = 350px height=170px>
+</h1>
 
- -[Station Game](#StationGame)
+<h1 align="center">
+  Project S.O.N.I.C - Reaction Training
+</h1>
+#
+
+ 
+<p align="center">
+  <a href="https://github.com/ntsd27/EGL314/commits/main"><img src="https://img.shields.io/github/last-commit/ntsd27/EGL-314.svg?style=for-the-badge"/></a>
+</p>
+
+## Table of Contents
+ - [Overview](#overview)
+
+ - [Station Game](#station-game)
+ 
+ - [Dependencies](#dependencies)
+
+ - [Pre-Requisites](#pre-requisities)
+
+ - [Setting Up](#setting-up)
+
+ - [References](#references)
+
+ - [Contributors](#contributors)
 
 
 ## Overview
@@ -25,14 +48,77 @@
 
 > In the Art of Hearing, it  is the ultimae test in auditory acuity. In this station, participants are required to isolate specific sounds from a layered landscape and decipher the messages, which they then enter the deciphered messages to achieve victory at the station 
 
-> Key Features include:
+><details open>
+> <summary>Key Features include:</summary>
 * Rich, Multi-layered environments created by L-ISA 
+* Focusing and listening to specific sounds to decipher messages 
+* Using those messages to put in a number combination lock at the station to achieve victory.
+
+## Dependencies
+> All the codes in this repository have been made using **Python 3.9 or higher**
+
+## Pre-Requisities
+> These are the softwares required that was utilised in the project:
+1. loopMIDI - Click [Here](https://www.tobias-erichsen.de/software/loopmidi.html)
+2. L-ISA Studio - Click [Here](https://www.l-acoustics.com/products/l-isa-studio/#)
+3. Reaper DAW - Click [Here](https://www.reaper.fm/download.php)
+
+## Setting Up
+> 1. Update your Raspberry Pi
+   
+   ```
+   sudo apt update
+   sudo apt upgrade
+   ```
+   
+  > If update and/or upgrade is unsuccesful, manually set the date and time by
+   
+   ```
+   sudo date -s 'YYYY-MM-DD HH:MM:SS"
+   ```
+> 2. Setting up Virtual Environment
+   
+  > To install Virtual Environment
+
+   ```
+   sudo apt install virtualenv python3-virtualenv -y
+   ```
+
+  > To create a new virtual environment
+
+   ```
+   virtualenv -p /usr/bin/python3 <environment_name>
+   ```
+
+ >   The <environment_name> is a variable, able to name it to other names
+
+  **THE VIRUTAL ENVIRONMENT IS A FOLDER**
+   
+  > To activate the virtual environment
+
+   ```
+   source <environment_folder>/bin/activate
+   ```
+
+  > To install a package
+
+   ```
+   pip3 install python-osc
+   ```
+
+  > To deactivate environment
+   
+   ```
+   deactivate
+   ```
 
 
 
 
-
-
+## References
+- **[Huats Club - rpistarterkit](https://github.com/huats-club/rpistarterkit)** - Getting started on configuring your Raspberry Pi
+- **[Huats Club - oscstarterkit](https://github.com/huats-club/oscstarterkit)** - Getting started on using Python Open Sound Control
+- **[Huats Club - mts_sensor_cookbook](https://github.com/huats-club/mts_sensor_cookbook)** - Foundation codes on common sensors
 
 
 ## Contributors
