@@ -6,7 +6,7 @@
 <h1 align="center">
   Project S.O.N.I.C - Reaction Training
 </h1>
-#
+
 
  
 <p align="center">
@@ -113,12 +113,17 @@
    ```
 
 
-
+## Tutorials
+> * **[Backlog 1 Sprint 1](./Backlog%201%20Sprint%201/B1S1.md)** - OSC Control to GrandMA3 and QL1 
+> * **[Backlog 1 Sprint 2](./Backlog%201%20Sprint%202/B1S2.md)**  - Laser Sequence Slow and Fast
+> * **[Backlog 2 Sprint 1](./Backlog%202%20Sprint%201/B2S1.md)** - L-ISA snapshots, OSC Communication to DAW 
+>* **[Backlog 2 Sprint 2](./Backlog%202%20Sprint%202/B2S2.md)** - Configuration of number lockpad GUI for POC demostration
+>* **[POC](./POC//POC.md)** - All the resources utilised for the demostration
 
 ## References
-- **[Huats Club - rpistarterkit](https://github.com/huats-club/rpistarterkit)** - Getting started on configuring your Raspberry Pi
-- **[Huats Club - oscstarterkit](https://github.com/huats-club/oscstarterkit)** - Getting started on using Python Open Sound Control
-- **[Huats Club - mts_sensor_cookbook](https://github.com/huats-club/mts_sensor_cookbook)** - Foundation codes on common sensors
+> - **[Huats Club - rpistarterkit](https://github.com/huats-club/rpistarterkit)** - Getting started on configuring your Raspberry Pi
+> - **[Huats Club - oscstarterkit](https://github.com/huats-club/oscstarterkit)** - Getting started on using Python Open Sound Control
+ >- **[Huats Club - mts_sensor_cookbook](https://github.com/huats-club/mts_sensor_cookbook)** - Foundation codes on common sensors
 
 
 ## Contributors
