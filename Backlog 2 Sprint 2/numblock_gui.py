@@ -1,5 +1,24 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+import dawcontrol
+from pythonosc import udp_client
+import random
+
+def send_message(receiver_ip, receiver_port, address, message):
+	try:
+		# Create an OSC client to send messages
+		client = udp_client.SimpleUDPClient(receiver_ip, receiver_port)
+
+		# Send an OSC message to the receiver
+		client.send_message(address, message)
+
+		print("Message sent successfully.")
+	except:
+		print("Message not sent")
+
+PI_A_ADDR = "192.168.254.87"		# wlan ip
+PORT = 8000
+
 
 # Define the preset combinations
 preset_combinations = [
@@ -9,6 +28,7 @@ preset_combinations = [
     [8, 2, 4],
     [0, 0, 0]
 ]
+
 
 # Create the main window
 main = tk.Tk()
@@ -89,7 +109,7 @@ def game_timer(seconds):
     else:
         game_timer_label.pack_forget()
         result_label.config(text="Time's up! You have lost the game.", fg="red", bg="white", font=("Arial", 16, "bold"))
-        main.after(3000, reset_to_start_page)
+        main.after(3000, reset_to_start_page, dawcontrol.play_pause)
 
 # Function to reset to the start page
 def reset_to_start_page():
@@ -111,10 +131,10 @@ number_lock_page = tk.Frame(main, bg="#a07d48")
 start_button = tk.Button(start_page, text="Start", command=start_countdown)
 start_button.pack(pady=20)
 
-button1 = tk.Button(start_page, text="High")
+button1 = tk.Button(start_page, text="High",command = dawcontrol.high)
 button1.pack(pady=5)
 
-button2 = tk.Button(start_page, text="Low")
+button2 = tk.Button(start_page, text="Low",command = dawcontrol.low)
 button2.pack(pady=5)
 
 countdown_label = tk.Label(start_page, text="", font=("Arial", 24))
