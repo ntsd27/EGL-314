@@ -9,7 +9,8 @@
 >- [System Diagram](#system-diagram)
 >    - [Hardware and Software Setup](#hardware-and-software-setup)
 >   - [Touchscreen Setup](#touchscreen-display-setup)
-
+>- [Media Assests](#media-assests)
+>- [Codes](#codes)
 
 ## Overview
 > In this Proof Of Concept, there will be a master station which will be shared among all teams 
@@ -63,3 +64,27 @@ A --OSC--> G[GrandMA3] --SCAN--> H[Moving Lights]
 </p>
 
 > 5. Boot up your Raspberry Pi and the display touchscreen should work!
+
+## Media Assests
+
+> All the media assests utilised in this POC include:
+>
+> [Legend Board](./Media%20Assests/Legend%20Board.png) - Poster with the coded messages to decipher
+
+<img src = "./Media Assests/Legend Board.png">
+
+> [Audio Files](./Audio%20Files/AudioFiles.zip) - zip file with all the audio files used in this POC demostration
+
+> [Reaper]() - Master Reaper file used
+
+>[GrandMA3]() - Master MA3 file used with the correct patching of lights
+
+## Codes
+> In **[this folder](./Codes)** , there are mainly 3 python files, all of which are needed to run and showcase the demostration smoothly.
+
+> 1. [numblock_gui.py](./Codes/numblock_gui.py) - main file and GUI that trigger the functions to be called from the other files.
+> 2. [dawcontrol.py](./Codes/dawcontrol.py) - python file to jump to various markers and allow of play/pause of track.
+> 3. [ma3control.py](./Codes/ma3control.py) - python file to trigger sequences in GrandMA3 software and also clear them afterwards. 
+
+
+
