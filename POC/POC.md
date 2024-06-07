@@ -89,14 +89,15 @@ A --OSC--> G[GrandMA3] --SCAN--> H[Moving Lights]
 
 ## File Breakdown
 > 1. [numblock_gui.py](./Codes/numblock_gui.py)
-><details><summary><b>Specifics</b></summary>
- When initially running [numblock_gui.py](./Codes/numblock_gui.py), the start screen appears. There are 4 buttons, "High", which is able to play the "H" beat once, "Low", which is able to play the "L" beat once, and "Wind", which will play the wind sound to signify the ending of a coded number. All of the purpose is to allow users to familiarise themselves with the different beats before pressing the "Start" button which will initiate a countdown sequence of 3 seconds before starting the game.
+> 
+ >When initially running [numblock_gui.py](./Codes/numblock_gui.py), the start screen appears. There are 4 buttons, "High", which is able to play the "H" beat once, "Low", which is able to play the "L" beat once, and "Wind", which will play the wind sound to signify the ending of a coded number. All of the purpose is to allow users to familiarise themselves with the different beats before pressing the "Start" button which will initiate a countdown sequence of 3 seconds before starting the game.
 
- When the page flips to the number combination, it will start a  countdown of 60 seconds which then have 3 number labels with **"+"** and **'-'** buttons beside them. pressing the **'+**' will increase the current value of the label by 1 while pressing the **'-**' will do the opposite.
+> When the page flips to the number combination, it will start a  countdown of 60 seconds which then have 3 number labels with **"+"** and **'-'** buttons beside them. pressing the **'+**' will increase the current value of the label by 1 while pressing the **'-**' will do the opposite.
 
- However, when pressing the **'+'** or **'-'** when the value is either 0 or 9, it will loop back to 9 or 0, respectively.
+> However, when pressing the **'+'** or **'-'** when the value is either 0 or 9, it will loop back to 9 or 0, respectively.
 
- There is also a button **"Check Combination"** which will check the current number combination and verify if it is the correct combination from a set of list. If it is, the game ends and the GUI goes back to the start page. If not, the timer continues until the time is up, which will then also bring the GUI back to the start page. This  [numblock_gui.py](./Codes/numblock_gui.py) allows for multiple plays which requires minimal maintenance and troubleshooting.</deatils>
+> There is also a button **"Check Combination"** which will check the current number combination and verify if it is the correct combination from a set of list. If it is, the game ends and the GUI goes back to the start page. If not, the timer continues until the time is up, which will then also bring the GUI back to the start page. This  [numblock_gui.py](./Codes/numblock_gui.py) allows for multiple plays which requires minimal maintenance and troubleshooting.
+
 
 
 
