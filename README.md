@@ -14,19 +14,13 @@
 </p>
 
 ## Table of Contents
- - [Overview](#overview)
-
- - [Station Game](#station-game)
- 
- - [Dependencies](#dependencies)
-
- - [Pre-Requisites](#pre-requisities)
-
- - [Setting Up](#setting-up)
-
- - [References](#references)
-
- - [Contributors](#contributors)
+> - [Overview](#overview)
+> - [Station Game](#station-game)
+> - [Dependencies](#dependencies)
+> - [Pre-Requisites](#pre-requisities)
+> - [Setting Up](#setting-up)
+> - [References](#references)
+> - [Contributors](#contributors)
 
 
 ## Overview
