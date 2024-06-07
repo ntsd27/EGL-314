@@ -5,7 +5,7 @@
 
 ## Table Of Contents
 >- [Overview](#overview) 
-
+>- [References](#references)
 >- [System Diagram](#system-diagram)
 >    - [Hardware and Software Setup](#hardware-and-software-setup)
 >   - [Touchscreen Setup](#touchscreen-display-setup)
@@ -15,10 +15,20 @@
 >- [Getting Started](#getting-started)
 
 ## Overview
-> In this Proof Of Concept, there will be a master station which will be shared among all teams, which in the venue, there are 12 speakers in the venue.
+> This repository contains all the assests,codes and others for our Station 3 - Art Of Hearing.
 
+>In this Proof Of Concept, there will be a master station which will be shared among all teams, which in the venue, there are 12 speakers in the venue.
 
+## References
+For the hardware and software connections, please consult the following: 
 
+1. [Backlog 1 Sprint 1](../Backlog%201%20Sprint%201/)
+
+1. [Backlog 1 Sprint 2](../Backlog%201%20Sprint%202/)
+
+1. [Backlog 2 Sprint 1](../Backlog%202%20Sprint%201/)
+
+1. [Backlog 2 Sprint 2](../Backlog%202%20Sprint%201/)
 
 ## Hardware and Software Setup
 
