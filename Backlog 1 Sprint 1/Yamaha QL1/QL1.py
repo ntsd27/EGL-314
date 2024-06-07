@@ -39,7 +39,7 @@ def send_message(receiver_ip, receiver_port, address, message):
         print("Message not sent")
 
 def volume_up1():
-    command = 'set MIXER:Current/InCh/Fader/Level 0 0 1000'
+    command = 'set MIXER:Current/InCh/Fader/Level 0 0 1000' #configure this
     run_command(command)
     time.sleep(1)
 
@@ -89,7 +89,7 @@ def send_osc():
 
     addr = "/print"
     msg = "salutations from pi_B"
-    send_message(PI_A_ADDR, PORT, addr, msg)
+    send_message(PI_A_ADDR, PORT, addr, msg)  # send osc message
 
 main = Tk.Tk()
 main.title("Audio Mixer Control")

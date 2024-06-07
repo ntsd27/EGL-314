@@ -11,8 +11,6 @@ def laseron():
 def laseroff():
     GPIO.output(21,GPIO.HIGH)
         
-def bpm_beat():
-    bpm = int(60/50)
     
     
 def laserslow():
