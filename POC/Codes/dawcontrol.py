@@ -76,32 +76,32 @@ def combi1():
 def combi2():
     code1()
     play()
-    main.after(4500,code4)
-    main.after(4000,code9)
-    main.after(4000,pause)
+    main.after(6000,code4)
+    main.after(12000,code9)
+    main.after(18000,pause)
 
 
 def combi3():
     code3()
     play()
-    main.after(4000,code0)
-    main.after(5000,code6)
-    main.after(4000,pause)
+    main.after(6000,code0)
+    main.after(12000,code6)
+    main.after(18000,pause)
 
 
 def combi4():
     code8()
     play()
-    main.after(4000,code2)
-    main.after(4000,code4)
-    main.after(4000,pause)
+    main.after(6000,code2)
+    main.after(12000,code4)
+    main.after(18000,pause)
 
 def combi5():
     code0()
     play()
-    main.after(5000,code0)
-    main.after(5000,code0)
-    main.after(5000,pause)
+    main.after(6000,code0)
+    main.after(12000,code0)
+    main.after(18000,pause)
 
 def code0():
     global PI_A_ADDR

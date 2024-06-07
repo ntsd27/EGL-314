@@ -22,24 +22,24 @@ PORT = 4869
 LAPTOP_IP = "192.168.254.30"
 MA_PORT = 8888
 
-def play_pause():
+def play():
     global PI_A_ADDR
     global PORT
-    addr = "/action/40044"
+    addr = "/action/1007"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
+
+def pause():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/1008"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr,  msg)
 
 def demohigh():
     global PI_A_ADDR
     global PORT
     addr = "/action/41259"
-    msg = float(1)
-    send_message(PI_A_ADDR, PORT, addr, msg)
-
-def demowind():
-    global PI_A_ADDR
-    global PORT
-    addr = "/action/"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
@@ -50,21 +50,27 @@ def demolow():
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
+def demowind():
+     global PI_A_ADDR
+     global PORT
+     addr = "/marker/30"
+     msg = float(1)
+     send_message(PI_A_ADDR,PORT,addr,msg)
+
 def high():
     demohigh()
-    play_pause()
-    main.after(1500, play_pause)
+    play()
+    main.after(1500, pause)
 
 def low():
     demolow()
-    play_pause()
-    main.after(1500, play_pause)
+    play()
+    main.after(1500, pause)
 
 def wind():
-    demowind()
-    play_pause()
-    main.after(1500,play_pause)
-
+     demowind()
+     play()
+     main.after(1500,pause)
 
 # Define the preset combinations
 preset_combinations = [
@@ -99,100 +105,107 @@ def code2():
 def code3():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/19"
+    addr = "/marker/34"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code4():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/20"
+    addr = "/marker/35"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code5():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/21"
+    addr = "/marker/36"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code6():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/22"
+    addr = "/marker/37"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code7():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/23"
+    addr = "/marker/38"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code8():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/24"
+    addr = "/marker/39"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def code9():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/25"
+    addr = "/marker/40"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def win():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/26"
+    addr = "/marker/41"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
 def lose():
     global PI_A_ADDR
     global PORT
-    addr = "/marker/27"
+    addr = "/marker/42"
     msg = float(1)
     send_message(PI_A_ADDR, PORT, addr, msg)
 
+def intro():
+     global PI_A_ADDR
+     global PORT
+     addr = "/marker/43"
+     msg = float(1)
+     send_message(PI_A_ADDR, PORT, addr, msg)
+
 def combi1():
     code2()
-    play_pause()
+    play()
     main.after(6000, code5)
     main.after(12000, code7)
-    main.after(18000, play_pause)
+    main.after(18000, pause)
 
 def combi2():
     code1()
-    play_pause()
+    play()
     main.after(6000, code4)
     main.after(12000, code9)
-    main.after(18000, play_pause)
+    main.after(18000, pause)
 
 def combi3():
     code3()
-    play_pause()
+    play()
     main.after(6000,code0)
     main.after(12000,code6)
-    main.after(18000,play_pause)
+    main.after(18000,pause)
 
 def combi4():
     code8()
-    play_pause()
+    play()
     main.after(6000,code2)
     main.after(12000,code4)
-    main.after(18000,play_pause)
+    main.after(18000,pause)
 
 def combi5():
     code0()
-    play_pause()
+    play()
     main.after(6000,code0)
     main.after(12000,code0)
-    main.after(18000,play_pause)
+    main.after(18000,pause)
 
 osc_msg_list = [combi1, combi2, combi3, combi4, combi5]
 
@@ -219,6 +232,12 @@ def play_current_choice():
         # Schedule the function to run again after a set interval (e.g., 20 seconds)
         main.after(20000, play_current_choice)
 
+def stop_repetitive_function():
+    try:
+        main.after_cancel(play_current_choice)
+    except:
+        pass
+
 # Function to choose a random item and start the repetition process
 def choose_random_item():
     global current_index, repetition_counter, correct_combination_entered
@@ -229,10 +248,14 @@ def choose_random_item():
 
 # Create the main window
 main = tk.Tk()
-ma3control.point()
-main.after(50, ma3control.point())
 main.title("Number Combination Lock")
-main.geometry("500x500")  # Set the window size
+main.geometry("500x500")
+main.after(50,ma3control.point)
+main.after(50, ma3control.point)
+main.after(5000,intro)
+main.after(5000,play)
+main.after(40000,pause)
+# Set the window size
 
 # Initialize the number labels
 number_labels = []
@@ -268,18 +291,21 @@ def check_combination():
         result_label.config(text="Correct Combination Entered!", fg="green", bg="white", font=("Arial", 16, "bold"))
         ma3control.clear()
         main.after(500, win)
-        main.after(1000, play_pause)  # Delay for victory sound to play completely
-        main.after(1000, ma3control.correct)
+        main.after(500, play)
+        main.after(500, ma3control.correct)
         main.after(7500, reset_to_start_page)
-        main.after(7500, play_pause)
         main.after(7500, ma3control.clear)
-          
+        main.after(7500, pause)
+        stop_repetitive_function()
+
     else:
         result_label.config(text="Incorrect Combination. Try Again.", fg="red", bg="white", font=("Arial", 16, "bold"))
         ma3control.wrong()
 
 # Function to start the countdown before showing the number lock page
 def start_countdown():
+    main.after(5000, choose_random_item)
+    countdown_label.pack()
     countdown(3)
 
 # Function to handle the countdown
@@ -297,7 +323,6 @@ def show_number_lock_page():
     countdown_label.pack_forget()
     start_page.place_forget()
     number_lock_page.place(relx=0.5, rely=0.5, anchor="center")
-    main.after(5000, choose_random_item)  # Call after page flip
 
 # Function to start the game timer
 def start_game_timer():
@@ -316,8 +341,11 @@ def game_timer(seconds):
         result_label.config(text="Time's up! You have lost the game.", fg="red", bg="white", font=("Arial", 16, "bold"))
         ma3control.wrong()
         lose()
-        play_pause()
+        play()
         main.after(3000, reset_to_start_page)
+        main.after(3000, ma3control.clear)
+        main.after(3000,ma3control.point)
+        main.after(3000,pause)
 
 # Function to reset to the start page
 def reset_to_start_page():
@@ -345,8 +373,8 @@ button1.pack(pady=5)
 button2 = tk.Button(start_page, text="Low", command=low)
 button2.pack(pady=5)
 
-button3 = tk.Button(start_page, text= "Wind",command= wind)
-button3.pack(pady= 5)
+button3 = tk.Button(start_page, text= "Wind",command=wind)
+button3.pack(pady=5)
 
 countdown_label = tk.Label(start_page, text="", font=("Arial", 24))
 countdown_label.pack()
