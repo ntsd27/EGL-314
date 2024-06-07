@@ -1,23 +1,70 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-import dawcontrol
 from pythonosc import udp_client
 import random
+import ma3control
+import dawcontrol
 
 def send_message(receiver_ip, receiver_port, address, message):
-	try:
-		# Create an OSC client to send messages
-		client = udp_client.SimpleUDPClient(receiver_ip, receiver_port)
+    try:
+        # Create an OSC client to send messages
+        client = udp_client.SimpleUDPClient(receiver_ip, receiver_port)
 
-		# Send an OSC message to the receiver
-		client.send_message(address, message)
+        # Send an OSC message to the receiver
+        client.send_message(address, message)
 
-		print("Message sent successfully.")
-	except:
-		print("Message not sent")
+        print(f"Message sent to {receiver_ip}:{receiver_port} - Address: {address}, Message: {message}")
+    except:
+        print(f"Failed to send message to {receiver_ip}:{receiver_port} - Address: {address}, Message: {message}")
 
-PI_A_ADDR = "192.168.254.87"		# wlan ip
-PORT = 8000
+PI_A_ADDR = "192.168.254.30"        # wlan ip
+PORT = 4869
+
+LAPTOP_IP = "192.168.254.30"
+MA_PORT = 8888
+
+def play_pause():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/40044"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def demohigh():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/41259"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def demowind():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def demolow():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/41260"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def high():
+    demohigh()
+    play_pause()
+    main.after(1500, play_pause)
+
+def low():
+    demolow()
+    play_pause()
+    main.after(1500, play_pause)
+
+def wind():
+    demowind()
+    play_pause()
+    main.after(1500,play_pause)
 
 
 # Define the preset combinations
@@ -29,23 +76,176 @@ preset_combinations = [
     [0, 0, 0]
 ]
 
+def code0():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/41262"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code1():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/41269"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code2():
+    global PI_A_ADDR
+    global PORT
+    addr = "/action/41270"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code3():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/19"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code4():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/20"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code5():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/21"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code6():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/22"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code7():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/23"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code8():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/24"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def code9():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/25"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def win():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/26"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def lose():
+    global PI_A_ADDR
+    global PORT
+    addr = "/marker/27"
+    msg = float(1)
+    send_message(PI_A_ADDR, PORT, addr, msg)
+
+def combi1():
+    code2()
+    play_pause()
+    main.after(6000, code5)
+    main.after(12000, code7)
+    main.after(18000, play_pause)
+
+def combi2():
+    code1()
+    play_pause()
+    main.after(6000, code4)
+    main.after(12000, code9)
+    main.after(18000, play_pause)
+
+def combi3():
+    code3()
+    play_pause()
+    main.after(6000,code0)
+    main.after(12000,code6)
+    main.after(18000,play_pause)
+
+def combi4():
+    code8()
+    play_pause()
+    main.after(6000,code2)
+    main.after(12000,code4)
+    main.after(18000,play_pause)
+
+def combi5():
+    code0()
+    play_pause()
+    main.after(6000,code0)
+    main.after(12000,code0)
+    main.after(18000,play_pause)
+
+osc_msg_list = [combi1, combi2, combi3, combi4, combi5]
+
+# Variable to keep track of the current index
+current_index = None
+# Counter to track the number of repetitions
+repetition_counter = 0
+# Flag to indicate if the correct combination is entered
+correct_combination_entered = False
+
+# Function to play the current choice and handle repetitions
+def play_current_choice():
+    global repetition_counter, correct_combination_entered
+
+    if correct_combination_entered:
+        return  # Stop the function if the correct combination is entered
+
+    if current_index is not None:
+        osc_msg_list[current_index]()  # Call the function at current_index
+
+    repetition_counter += 1
+
+    if repetition_counter < 3:  # Check if the function has been called less than 3 times
+        # Schedule the function to run again after a set interval (e.g., 20 seconds)
+        main.after(20000, play_current_choice)
+
+# Function to choose a random item and start the repetition process
+def choose_random_item():
+    global current_index, repetition_counter, correct_combination_entered
+    current_index = random.randint(0, len(osc_msg_list) - 1)
+    repetition_counter = 0  # Reset the repetition counter
+    correct_combination_entered = False  # Reset the flag for new choice
+    play_current_choice()
 
 # Create the main window
 main = tk.Tk()
+ma3control.point()
+main.after(50, ma3control.point())
 main.title("Number Combination Lock")
-main.geometry("1000x1000")  # Set the window size
+main.geometry("500x500")  # Set the window size
 
 # Initialize the number labels
 number_labels = []
 
 # Load the image for the background
 image = Image.open("padlock picture.png")  # Replace with the path to your image
-image = image.resize((1000, 1000))  # Resize the image if needed
+image = image.resize((350, 350))  # Resize the image if needed
 background_image = ImageTk.PhotoImage(image)
 
 # Create a label to display the background image
 background_label = tk.Label(main, image=background_image)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
+background_label.place(x=0, y=2, relwidth=1, relheight=1)
 
 # Function to increment the number and cycle back to 0 after reaching 9
 def increment_number(idx):
@@ -61,22 +261,27 @@ def decrement_number(idx):
 
 # Function to check if the current combination is correct
 def check_combination():
+    global correct_combination_entered
+
     current_combination = [int(label["text"]) for label in number_labels]
     if current_combination in preset_combinations:
+        correct_combination_entered = True  # Set the flag
         result_label.config(text="Correct Combination Entered!", fg="green", bg="white", font=("Arial", 16, "bold"))
-        main.after(2000, reset_to_start_page)
+        ma3control.clear()
+        main.after(500, win)
+        main.after(1000, play_pause)  # Delay for victory sound to play completely
+        main.after(1000, ma3control.correct)
+        main.after(7500, reset_to_start_page)
+        main.after(7500, play_pause)
+        main.after(7500, ma3control.clear)
+          
     else:
-        result_label.config(text="Incorrect Combination!", fg="red", bg="white", font=("Arial", 16, "bold"))
-        main.after(2000, clear_result_label)
+        result_label.config(text="Incorrect Combination. Try Again.", fg="red", bg="white", font=("Arial", 16, "bold"))
+        ma3control.wrong()
 
-def clear_result_label():
-    result_label.config(text="")
-
-# Function to start the countdown
+# Function to start the countdown before showing the number lock page
 def start_countdown():
-    countdown_label.config(text="5", font=("Arial", 24))
-    countdown_label.pack()
-    countdown(5)
+    countdown(3)
 
 # Function to handle the countdown
 def countdown(seconds):
@@ -89,10 +294,11 @@ def countdown(seconds):
 
 # Function to show the number lock page
 def show_number_lock_page():
+    start_game_timer()
     countdown_label.pack_forget()
     start_page.place_forget()
-    number_lock_page.place(relx=0.5, rely=0.7, anchor="center")
-    start_game_timer()
+    number_lock_page.place(relx=0.5, rely=0.5, anchor="center")
+    main.after(5000, choose_random_item)  # Call after page flip
 
 # Function to start the game timer
 def start_game_timer():
@@ -109,7 +315,10 @@ def game_timer(seconds):
     else:
         game_timer_label.pack_forget()
         result_label.config(text="Time's up! You have lost the game.", fg="red", bg="white", font=("Arial", 16, "bold"))
-        main.after(3000, reset_to_start_page, dawcontrol.play_pause)
+        ma3control.wrong()
+        lose()
+        play_pause()
+        main.after(3000, reset_to_start_page)
 
 # Function to reset to the start page
 def reset_to_start_page():
@@ -129,13 +338,16 @@ number_lock_page = tk.Frame(main, bg="#a07d48")
 
 # Start page widgets
 start_button = tk.Button(start_page, text="Start", command=start_countdown)
-start_button.pack(pady=20)
+start_button.pack(pady=10)
 
-button1 = tk.Button(start_page, text="High",command = dawcontrol.high)
+button1 = tk.Button(start_page, text="High", command=high)
 button1.pack(pady=5)
 
-button2 = tk.Button(start_page, text="Low",command = dawcontrol.low)
+button2 = tk.Button(start_page, text="Low", command=low)
 button2.pack(pady=5)
+
+button3 = tk.Button(start_page, text= "Wind",command= wind)
+button3.pack(pady= 5)
 
 countdown_label = tk.Label(start_page, text="", font=("Arial", 24))
 countdown_label.pack()
@@ -145,7 +357,7 @@ start_page.place(relx=0.5, rely=0.7, anchor="center")
 
 # Number lock page widgets
 number_frame = tk.Frame(number_lock_page)
-number_frame.pack(pady=20)
+number_frame.pack(pady=18)
 
 for i in range(3):
     increment_button = tk.Button(number_frame, text="+", command=lambda idx=i: increment_number(idx))
@@ -158,16 +370,16 @@ for i in range(3):
     decrement_button = tk.Button(number_frame, text="-", command=lambda idx=i: decrement_number(idx))
     decrement_button.grid(row=i, column=2, pady=5)
 
+# Create result label
+result_label = tk.Label(number_lock_page, text="", font=("Arial", 16))
+result_label.pack(pady=10)
+
+# Create game timer label
+game_timer_label = tk.Label(number_lock_page, text="", font=("Arial", 24))
+
+# Create check button
 check_button = tk.Button(number_lock_page, text="Check Combination", command=check_combination)
 check_button.pack(pady=10)
 
-result_label = tk.Label(number_lock_page, text="", font=("Arial", 16), width=30, height=2)
-result_label.pack(pady=10)
-
-game_timer_label = tk.Label(number_lock_page, text="", font=("Arial", 24))
-
-# Initially hide the number lock page
-number_lock_page.place_forget()
-
-# Run the main loop
+# Start the main loop
 main.mainloop()
