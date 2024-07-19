@@ -88,7 +88,7 @@ main.after(40000,dawcontrol.pause)
 number_labels = []
 
 # Load the image for the background
-image = Image.open("padlock picture.png")  # Replace with the path to your image
+image = Image.open('padlock picture.png')  # Replace with the path to your image
 image = image.resize((350, 350))  # Resize the image if needed
 background_image = ImageTk.PhotoImage(image)
 
