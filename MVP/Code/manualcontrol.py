@@ -390,7 +390,7 @@ def point():
     msg = "Go+ Sequence 54"
     send_message(LAPTOP_IP, MA_PORT, addr1, msg)
 
-def split():
+def split3():
     global LAPTOP_IP
     global MA_PORT
     global addr1
@@ -788,7 +788,7 @@ correctbutton.grid(row=3, column= 1)
 wrongbutton = tk.Button(main, text= 'Wrong', command= wrong)
 wrongbutton.grid(row=4, column= 1)
 
-sidebutton = tk.Button(main, text= '3 Sides', command= split)
+sidebutton = tk.Button(main, text= '3 Sides', command= split3)
 sidebutton.grid(row=5, column= 1)
 
 gatherbutton = tk.Button(main, text= 'Gather', command= middle)
