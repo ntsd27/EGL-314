@@ -35,7 +35,7 @@ def control_relay(addr, *args):
         value = int(msg[2].strip())
         
         print(f"The spk {spk} controlling channel {channel} and the value is {value}")
-        if spk == 1: # Change according to spk number (refer to S536 drawing)
+        if spk == 4: # Change according to spk number (refer to S536 drawing)
             if channel == 1:
                 if value == 1:
                     GPIO.output(r1_c1, GPIO.LOW)
@@ -51,7 +51,7 @@ def control_relay(addr, *args):
                     GPIO.output(r1_c2, GPIO.HIGH)
                     print("Relay 1 channel 2 turned OFF")
 
-        elif spk == 2: # Change according to spk number (refer to S536 drawing)
+        elif spk == 5: # Change according to spk number (refer to S536 drawing)
             if channel == 1:
                 if value == 1:
                     GPIO.output(r2_c1, GPIO.LOW)
@@ -67,7 +67,7 @@ def control_relay(addr, *args):
                     GPIO.output(r2_c2, GPIO.HIGH)
                     print("Relay 2 channel 2 turned OFF")
 
-        elif spk == 3: # Change according to spk number (refer to S536 drawing)
+        elif spk == 6: # Change according to spk number (refer to S536 drawing)
             if channel == 1:
                 if value == 1:
                     GPIO.output(r3_c1, GPIO.LOW)

@@ -521,7 +521,7 @@ def playcombi1():
     main.after(23500,one1pan8)
     main.after(25500,two1pan11)
     main.after(27000,three1pan3)
-    main.after(28500,whooo1)
+    main.after(28500,whooo1) 
 
     main.after(30500,one1pan8)
     main.after(31500,two1pan11)
@@ -829,7 +829,8 @@ main = tk.Tk()
 main.title("Number Combination Lock")
 main.geometry("600x600")
 main.after(1000, lambda: main.attributes('-fullscreen', True))
-# Set the window size
+# Set the win
+# dow size
 
 # Initialize the number labels
 number_labels = []
