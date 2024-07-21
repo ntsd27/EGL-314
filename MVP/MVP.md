@@ -32,17 +32,29 @@ For the hardware and software connections, please consult the following:
 ### System Diagram
 ```mermaid
 graph TD
-A[Raspberry Pi] --OSC--> B[Reaper DAW] --DANTE VSC--> C[L-ISA Processor] --Meta Data--> D[L-ISA Controller]--DANTE--> E[Yamaha QL1] --DANTE--> F[Amplifier] --Speaker Cables--> I[Speakers]
-A --OSC--> G[GrandMA3] --SCAN--> H[Moving Lights]
+A[Raspberry Pi] --OSC--> V[Master Laptop]-->B[Reaper DAW] <--DANTE VSC--> C[L-ISA Processor] <--Spatial Meta Data--> D[L-ISA Controller]<--LAN DANTE--> E[Yamaha QL1] <--LAN DANTE--> F[Amplifier] --Speaker Cable to Euroblock(4P)--> I[Speakers]
+V --OSC--> G[GrandMA3] <--SCAN--> H[Moving Lights
+Ayrton Mistral,MagicBlade,Minipanel,Showliner ePar]
 
+Y --OSC--> V
 
-Y[Laptop GUI] --WiFi--> Z[Raspberry Pi - Laser Master]
-Z --WiFi--> Z[Raspberry Pi - Laser Slave 1]
-Z --WiFi--> X[Raspberry Pi - Laser Slave 2]
-Z --WiFi--> W[Raspberry Pi - Laser Slave 3]
-Z --WiFi--> J[Raspberry Pi - Laser Slave 4]
-Z --WiFi--> K[Raspberry Pi - Neopixel]
+Y[Laptop GUI] -- OSC--> Z[Raspberry Pi - Laser Master]
+Z --OSC--> N[Raspberry Pi - Laser Slave 1]
+Z --OSC--> X[Raspberry Pi - Laser Slave 2]
+Z --OSC--> W[Raspberry Pi - Laser Slave 3]
+Z --OSC--> J[Raspberry Pi - Laser Slave 4]
+Z --OSC--> K[Raspberry Pi - Neopixel LED Strip]
+
+N --GPIO--> L[Relay Module x3]
+X --GPIO--> Q[Relay Module x3]
+W --GPIO--> P[Relay Module x3]
+J --GPIO--> R[Relay Module x3]
+L --> O[Laser Module ]
+Q --> O
+P --> O
+R --> O
 ```
+>In this system diagram, for any equipments used in the sending of OSC commands <b>MUST</b> be on the same network,including all the IP Addresses of the Raspberry PI.
 
 ## Media Assests
 > Included in the MVP Demostration are: 
