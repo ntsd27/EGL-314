@@ -10,7 +10,13 @@
 
 >In this station, there will be 3 participants standing at each side of the room, each participants have to listen to the beat that correspond to their side of the room, to get a number and then come together to crack open the combination of the lock.
 
-## Table Of Contents
+>Sound cue represent the secret ninja code that every ninja learnt.When combined, the 4 sound cue together a code will be created which then can be deciphered into number to input into the lock
+
+>There is also a treasure chest full of secrets of the richest man in the village through this: 
+
+<img src = './Media Assests/treasure.jpg'>
+
+>
 
 
 
@@ -28,6 +34,8 @@ For the hardware and software connections, please consult the following:
 
 ### Hardware Setup
 > For the hardware setup, there are no changes made, hence refer to [POC](../POC/README.md) for the set up of hardware.
+
+
 
 ### System Diagram
 ```mermaid
@@ -61,6 +69,13 @@ R --> O
 > 1. On the L-ISA OSC page, change the Raspberry PI to OSC-ADM format, as the OSC control commands are more precise, allowing specific degress for accurate placement on the speakers.
 
 <img src = "./Media Assests/LISAOSC.png">
+
+### Hardware SetUp
+> For the hardware set up of the treasure chest, this is what it looks like: 
+
+<img src = "./Media Assests/displaysetup.jpg">
+
+>There are ample space to store both the powerbank and the raspberry Pi with ample amount of slack.
 
 
 ## Media Assests
