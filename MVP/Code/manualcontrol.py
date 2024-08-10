@@ -394,14 +394,14 @@ def split3():
     global LAPTOP_IP
     global MA_PORT
     global addr1
-    msg = "Go+ Sequence 57"
+    msg = "Go+ Sequence 61"
     send_message(LAPTOP_IP, MA_PORT, addr1, msg)
 
 def middle():
     global LAPTOP_IP
     global MA_PORT
     global addr1
-    msg = "Go+ Sequence 58"
+    msg = "Go+ Sequence 60"
     send_message(LAPTOP_IP, MA_PORT, addr1, msg)
 
 def correct():
@@ -773,52 +773,52 @@ main.title("Number Combination Lock")
 main.geometry("600x600")
 
 
-malabel = tk.Label(main, text= 'Lighting')
+malabel = tk.Label(main, text= 'Lighting',font=("Arial", 16))
 malabel.grid(row=0, column= 1)
 
-clear = tk.Button(main, text= 'Clear', command= clear)
-clear.grid(row=1, column= 1)
+clear = tk.Button(main, text= 'Clear', command= clear,width=10, height=2,font=("Arial", 16))
+clear.grid(row=1, column= 1,pady= 10,padx = 10)
 
-malabel = tk.Button(main, text= 'Lighting', command= point)
-malabel.grid(row=2, column= 1)
+malabel = tk.Button(main, text= 'Lighting', command= point,width=10, height=2,font=("Arial", 16))
+malabel.grid(row=2, column= 1,pady= 10,padx = 10)
 
-correctbutton = tk.Button(main, text= 'Correct', command= correct)
-correctbutton.grid(row=3, column= 1)
+correctbutton = tk.Button(main, text= 'Correct', command= correct,width=10, height=2,font=("Arial", 16))
+correctbutton.grid(row=3, column= 1,pady= 10,padx = 10)
 
-wrongbutton = tk.Button(main, text= 'Wrong', command= wrong)
-wrongbutton.grid(row=4, column= 1)
+wrongbutton = tk.Button(main, text= 'Wrong', command= wrong,width=10, height=2,font=("Arial", 16))
+wrongbutton.grid(row=4, column= 1,pady= 10,padx = 10)
 
-sidebutton = tk.Button(main, text= '3 Sides', command= split3)
-sidebutton.grid(row=5, column= 1)
+sidebutton = tk.Button(main, text= '3 Sides', command= split3,width=10, height=2,font=("Arial", 16))
+sidebutton.grid(row=5, column= 1,pady= 10,padx = 10)
 
-gatherbutton = tk.Button(main, text= 'Gather', command= middle)
-gatherbutton.grid(row=6, column= 1)
+gatherbutton = tk.Button(main, text= 'Gather', command= middle,width=10, height=2,font=("Arial", 16))
+gatherbutton.grid(row=6, column= 1,pady= 10,padx = 10)
 
-dawlabel = tk.Label(main, text= 'Audio')
+dawlabel = tk.Label(main, text= 'Audio',font=("Arial", 16))
 dawlabel.grid(row=0, column= 4)
 
-combi1button = tk.Button(main, text= 'Combi1', command= playcombi1)
-combi1button.grid(row=1, column= 4)
+combi1button = tk.Button(main, text= 'Combi1', command= playcombi1,width=10, height=2,font=("Arial", 16))
+combi1button.grid(row=1, column= 4,pady= 10,padx = 10)
 
-combi2button = tk.Button(main, text= 'Combi2', command= playcombi2)
-combi2button.grid(row=2, column= 4)
+combi2button = tk.Button(main, text= 'Combi2', command= playcombi2,width=10, height=2,font=("Arial", 16))
+combi2button.grid(row=2, column= 4,pady= 10,padx = 10)
 
-combi3button = tk.Button(main, text= 'Combi3', command= playcombi3)
-combi3button.grid(row=3, column= 4)
+combi3button = tk.Button(main, text= 'Combi3', command= playcombi3,width=10, height=2,font=("Arial", 16))
+combi3button.grid(row=3, column= 4,pady= 10,padx = 10)
 
-combi4button = tk.Button(main, text= 'Combi4', command= playcombi4)
-combi4button.grid(row=4, column= 4)
+combi4button = tk.Button(main, text= 'Combi4', command= playcombi4,width=10, height=2,font=("Arial", 16))
+combi4button.grid(row=4, column= 4,pady= 10,padx = 10)
 
-combi5button = tk.Button(main, text= 'Combi5', command= playcombi5)
-combi5button.grid(row=5, column= 4)
+combi5button = tk.Button(main, text= 'Combi5', command= playcombi5,width=10, height=2,font=("Arial", 16))
+combi5button.grid(row=5, column= 4,pady= 10,padx = 10)
 
-introbutton = tk.Button(main, text= 'Intro', command= intro)
-introbutton.grid(row=6, column= 4)
+introbutton = tk.Button(main, text= 'Intro', command= intro,width=10, height=2,font=("Arial", 16))
+introbutton.grid(row=6, column= 4,pady= 10,padx = 10)
 
-playbutton = tk.Button(main, text= 'Play', command= play)
-playbutton.grid(row=7, column= 4)
+playbutton = tk.Button(main, text= 'Play', command= play,width=10, height=2,font=("Arial", 16))
+playbutton.grid(row=7, column= 4,pady= 10,padx = 10)
 
-introbutton = tk.Button(main, text= 'Pause', command= pause)
-introbutton.grid(row=8, column= 4)
+introbutton = tk.Button(main, text= 'Pause', command= pause,width=10, height=2,font=("Arial", 16))
+introbutton.grid(row=8, column= 4,pady= 10,padx = 10)
 
 main.mainloop()

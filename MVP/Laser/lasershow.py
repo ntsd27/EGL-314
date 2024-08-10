@@ -201,6 +201,12 @@ def start_show():
     playdaw()
     mainshow()
 
+def allon():
+    turn_on_back()
+    turn_on_front()
+    turn_on_right()
+    turn_on_left()
+
 # Main loop to run the show
 def mainshow():
     turn_on_right()
@@ -264,6 +270,7 @@ start_button.grid(row = 0, column= 0)
 music_button = tk.Button(main,command=playdaw, text= 'MUSIC Only')
 music_button.grid(row = 0, column= 1)
 
-main.mainloop()
+laseron_button = tk.Button(main,command=allon, text= 'All laser On')
+laseron_button.grid(row = 0, column= 2)
 
-.0
+main.mainloop()
