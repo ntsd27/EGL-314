@@ -98,20 +98,21 @@ R --> O
 > In the [game.py](./Code/game.py), upon running the program, the start page GUI appears as below: 
 <img src = "./Media Assests/new start.png">
 >There are mainly 5 buttons for demo, which mainly: 
+
 >1. <b>Start</b> - To start and begin the game
->
+
 >2. <b>High 1</b> - Plays the High sound on speaker 2
->
+
 >3. <b>Low 1</b> - Plays the Low sound on speaker 2
->
+
 >4. <b>High 2</b> -Plays the High sound on speaker  11
->
+
 >5. <b>Low 2</b> - Plays the Low sound on speaker 11
->
+
 >6. <b>High 3</b> - Plays the High sound on speaker 8
->
+
 >7. <b>Low 3</b> - Plays the High sound on speaker 8
->
+
 >8. <b>Wind</b> - Plays the Whoosh sound on speaker 5
 
 >For reference, this is a picture of the speakers placement and numbers. 
@@ -127,14 +128,16 @@ R --> O
 
 > When the game begins, this GUI is shown instead: 
 <img src = './Media Assests/new lock.png'>
->The functions here include 
+>The functions here include: 
+
 > 1. <b>Number Combinations</b> - Pressing the '+'or '-' button will increase or decrease the current number shown respectively, able to loop to '9' when pressing '-' when the number is 0.
+
 > 2. <b>Check Combination</b> - When participants has input a number combination, pressing the button wil check if the numbers the particiapants has inputted is the correct combination as what they heard on the speakers, there will 2 scenarios that can happen, mainly:
 > 1. <b>Winning Scenario</b> - The combination entered is correct and participants win the game.
 > 2. <b>Losing Scenario</b> - The combination entered is wrong, causing the lights to turn red, while participatns are able to try for a different combination as long as the time does not run out.
->
+
 > Participants at each of their side of the speakers must listen for their corresponding beats coming form their side of the speakers, decipher it into a number and input the number according to their color on the number lock.
->
+
 > When participants run out of time, they are  brought back to the start page. This allows for multiple attempts in one smooth gameplay which requires little maintence or rerunning of the program
 
 > The Main Game contains all the functions for sending OSC messages to REAPER and L-ISA.
