@@ -6,7 +6,7 @@
 ## Overview
 > This repository contains all the assests,codes and others for our Station 3 - Art Of Hearing.
 
->In this Final Demostraion, there will be a master station which will be shared among all teams, which in the venue, there are 12 speakers in the venue.
+>In this Final Demostration, there will be a master station which will be shared among all teams, which in the venue, there are 12 speakers in the venue.
 
 >In this station, there will be 3 participants standing at each side of the room, each participants have to listen to the beat that correspond to their side of the room, to get a number and then come together to crack open the combination of the lock.
 
@@ -389,7 +389,21 @@ check_button.pack(pady=10)
 >
 >Due to the addition of another neo pixel in the balloon, and now there are also lighting sequences happening during the laser show.
 >
-> [lasershow.py](./Laser/lasershow.py) - In these code, take note of the following:
+> [lasershow.py](./Laser/lasershow.py) - when running the code, this is what is shown: 
+<img src = './Media Assests/lasergui.png'>
+><b>Start Show</b> - Starts the whole laser sequence show with music and lighting sequence.
+>
+><b>MUSIC Only</b> - Only plays the music used for the laser show.
+>
+><b>All laser on</b> - Sends OSC messages to turn on all the lasers.
+>
+><b>All laser Off</b> - Sends OSC messages to turn off all the lasers.
+>
+><b>Neo Pixel</b> - Only plays the neo pixel functions in both the truss and the balloon.
+>
+><b>Stop Show</b> - Stops the Reaper and the lighting sequence on the GrandMA3.
+
+> In this code, take note of the following:
 ```
 # Set the IP and port of the OSC server (the Raspberry Pi running your NeoPixel control code)
 SERVER_IP = "192.168.254.242"  # Change to your RPi's IP address
@@ -630,6 +644,67 @@ def strobe_pink(duration=6, interval=0.1):
     send_off(client2)
 ```
 >This function makes both the neo pixel in the truss and in the balloon strobe pink for 6 seconds.
+```
+    BPM = 113  # Set the BPM of the songdef wave_transition()
+    strobe_duration = 11  # Total strobe duration in seconds
+    delay_per_flash = 60 / BPM  # Calculate delay between flashes based on BPM
+    strobe_colors = [(0, 0, 255), (255, 0, 0), (0, 255, 0)]  # Blue, Red, Green
+
+    end_time = time.time() + strobe_duration
+    while time.time() < end_time:
+        for color in strobe_colors:
+            if time.time() >= end_time:
+                break
+            colors = [color] * 170  # Set all pixels to the current strobe color
+            send_color_array(colors)
+            time.sleep(delay_per_flash) 
+        send_off()
+```
+>This function makes the neo pixel in the truss strobes blue,red, green for 11 seconds.
+```
+delay_pixel2 = 13/170
+def reverse_pixel_off(delay_pixel=0.1):
+    num_pixels_170 = 170
+
+    # Start with all pixels lit (e.g., white)
+    colors = [(255, 255, 255)] * num_pixels_170
+    send_color_array(colors)
+
+    # Turn off each pixel one by one from the end to the beginning
+    for i in range(num_pixels_170 - 1, -1, -1):
+        colors[i] = (0, 0, 0)
+        send_color_array(colors)
+        time.sleep(delay_pixel2)
+    send_off()
+```
+>Lastly, this function lights all the pixels in the neo pixel in the truss, before turning each pixel individually until all the pixels has been turned off, for a duration of 13 seconds.
+
+><b>GrandMA3</b>
+```
+def lightstart():
+    global LAPTOP_IP
+    global MA_PORT
+    global addr1
+    msg = "Go+ Sequence 87"
+    send_message(LAPTOP_IP, MA_PORT, addr1, msg)
+
+def lightmid():
+    global LAPTOP_IP
+    global MA_PORT
+    global addr1
+    msg = "Go+ Sequence 89"
+    send_message(LAPTOP_IP, MA_PORT, addr1, msg)
+
+
+def offsequence():
+    global LAPTOP_IP
+    global MA_PORT
+    global addr1
+    msg = "Off MyRunningSequence"
+```
+><b>lightstart</b> - This function starts the sequence for the laser show, where each cue in the sequence has been aligned to sync with the music perfectly.
+><b>lightmid</b> - This function points a light near the middle of the room to present the certificate for completing our showcase.
+><b>offsequence</b> - This function clears the sequence currently running.
 
 >[osclaser_server_V2.py](./Laser/osclaser_server_V2.py) - In this code, take note of the following:
 ```
