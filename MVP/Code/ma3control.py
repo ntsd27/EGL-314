@@ -20,7 +20,7 @@ def point():
 	global LAPTOP_IP
 	global MA_PORT
 	global addr1
-	msg = "Go+ Sequence 53"
+	msg = "Go+ Sequence 54"
 	send_message(LAPTOP_IP, MA_PORT, addr1, msg)
 	
 
@@ -43,7 +43,7 @@ def split3():
     global LAPTOP_IP
     global MA_PORT
     global addr1
-    msg = "Go+ Sequence 57"
+    msg = "Go+ Sequence 61"
     send_message(LAPTOP_IP, MA_PORT, addr1, msg)
 
 def middle():
