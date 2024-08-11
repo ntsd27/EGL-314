@@ -99,17 +99,24 @@ R --> O
 <img src = "./Media Assests/new start.png">
 >There are mainly 5 buttons for demo, which mainly: 
 >1. <b>Start</b> - To start and begin the game
->2. <b>High 1</b> - Plays the High sound on speaker 2
->3. <b>Low 1</b> - Plays the Low sound on speaker 2
->4. <b>High 2</b> -Plays the High sound on speaker  11
->5. <b>Low 2</b> - Plays the Low sound on speaker 11
->6. <b>High 3</b> - Plays the High sound on speaker 8
->7. <b>Low 3</b> - Plays the High sound on speaker 8
->8. <b>Wind</b> - Plays the Whoosh sound on speaker 5
 >
+>2. <b>High 1</b> - Plays the High sound on speaker 2
+>
+>3. <b>Low 1</b> - Plays the Low sound on speaker 2
+>
+>4. <b>High 2</b> -Plays the High sound on speaker  11
+>
+>5. <b>Low 2</b> - Plays the Low sound on speaker 11
+>
+>6. <b>High 3</b> - Plays the High sound on speaker 8
+>
+>7. <b>Low 3</b> - Plays the High sound on speaker 8
+>
+>8. <b>Wind</b> - Plays the Whoosh sound on speaker 5
+
 >For reference, this is a picture of the speakers placement and numbers. 
 <img src = './Media Assests/SpeakerPlacement.png'> 
->
+
 >For Blue side, it is speakers 1-3.
 >
 >For Yellow side, it is speakers 10-12.
