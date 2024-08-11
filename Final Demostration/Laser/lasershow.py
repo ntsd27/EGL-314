@@ -233,7 +233,7 @@ def strobe_pink(duration=6, interval=0.1):
         colors_170 = [off_color] * num_pixels_170
         colors_101 = [off_color] * num_pixels_101
         send_color_array(colors_170)
-        send_color_array(colors_101
+        send_color_array(colors_101)
         time.sleep(interval)
 
     send_off(client)
